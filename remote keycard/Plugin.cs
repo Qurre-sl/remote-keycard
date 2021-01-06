@@ -4,22 +4,22 @@ using Qurre.API.Events;
 using System.Linq;
 namespace remote_keycard
 {
-    public class Plugin : Qurre.Plugin
-    {
-        #region override
-        public override string name => "remote keycard";
-        public override void Enable() => RegisterEvents();
-        public override void Disable() => UnregisterEvents();
-        public override void Reload() { }
-        #endregion
-        #region events
-        private void RegisterEvents()
+	public class Plugin : Qurre.Plugin
+	{
+		#region override
+		public override string name => "remote keycard";
+		public override void Enable() => RegisterEvents();
+		public override void Disable() => UnregisterEvents();
+		public override void Reload() { }
+		#endregion
+		#region events
+		private void RegisterEvents()
 		{
 			Qurre.Events.Player.InteractDoor += RunOnDoorOpen;
 			Qurre.Events.Player.InteractLocker += LockerInteraction;
 			Qurre.Events.Player.InteractGenerator += GenOpen;
 		}
-        private void UnregisterEvents()
+		private void UnregisterEvents()
 		{
 			Qurre.Events.Player.InteractDoor -= RunOnDoorOpen;
 			Qurre.Events.Player.InteractLocker -= LockerInteraction;
@@ -105,6 +105,6 @@ namespace remote_keycard
 				}
 			}
 		}
-        #endregion
-    }
+		#endregion
+	}
 }
