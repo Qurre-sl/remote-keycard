@@ -38,15 +38,9 @@ namespace remote_keycard
 					var gameItem = UnityEngine.Object.FindObjectOfType<Inventory>().availableItems.FirstOrDefault(i => i.id == item.id);
 					if (gameItem == null)
 						continue;
-					if (gameItem.permissions == null || gameItem.permissions.Length == 0)
-						continue;
-					foreach (var itemPerm in gameItem.permissions)
+					if (ev.Door.RequiredPermissions.CheckPermissions(gameItem, ev.Player))
 					{
-						if (itemPerm == ev.Door.permissionLevel)
-						{
-							ev.IsAllowed = true;
-							continue;
-						}
+						ev.IsAllowed = true;
 					}
 				}
 			}
