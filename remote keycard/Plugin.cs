@@ -6,7 +6,8 @@ namespace remote_keycard
 	public class Plugin : Qurre.Plugin
 	{
 		#region override
-		public override string Version => "1.0.2";
+		public override System.Version Version => new System.Version(1, 0, 3);
+		public override System.Version NeededQurreVersion => new System.Version(1, 1, 1);
 		public override string Developer => "fydne";
 		public override string Name => "remote keycard";
 		public override void Enable() => RegisterEvents();
