@@ -7,12 +7,11 @@ namespace remote_keycard
 	{
 		#region override
 		public override System.Version Version => new System.Version(1, 0, 3);
-		public override System.Version NeededQurreVersion => new System.Version(1, 1, 1);
+		public override System.Version NeededQurreVersion => new System.Version(1, 1, 2);
 		public override string Developer => "fydne";
 		public override string Name => "remote keycard";
 		public override void Enable() => RegisterEvents();
 		public override void Disable() => UnregisterEvents();
-		public override void Reload() { }
 		#endregion
 		#region events
 		private void RegisterEvents()
