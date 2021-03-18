@@ -6,8 +6,8 @@ namespace remote_keycard
 	public class Plugin : Qurre.Plugin
 	{
 		#region override
-		public override System.Version Version => new System.Version(1, 0, 3); 
-		public override System.Version NeededQurreVersion => new System.Version(1, 1, 2);
+		public override System.Version Version => new System.Version(1, 0, 4); 
+		public override System.Version NeededQurreVersion => new System.Version(1, 2, 0);
 		public override string Developer => "fydne";
 		public override string Name => "remote keycard";
 		public override void Enable() => RegisterEvents();
@@ -31,7 +31,7 @@ namespace remote_keycard
 		public void RunOnDoorOpen(InteractDoorEvent ev)
 		{
 			if (ev.Player.Team == Team.SCP) return;
-			if (!ev.IsAllowed)
+			if (!ev.Allowed)
 			{
 				var playerIntentory = ev.Player.Inventory.items;
 				foreach (var item in playerIntentory)
@@ -39,16 +39,16 @@ namespace remote_keycard
 					var gameItem = UnityEngine.Object.FindObjectOfType<Inventory>().availableItems.FirstOrDefault(i => i.id == item.id);
 					if (gameItem == null)
 						continue;
-					if (ev.Door.RequiredPermissions.CheckPermissions(gameItem, ev.Player.ReferenceHub))
+					if (ev.Door.Permissions.CheckPermissions(gameItem, ev.Player.ReferenceHub))
 					{
-						ev.IsAllowed = true;
+						ev.Allowed = true;
 					}
 				}
 			}
 		}
 		public void LockerInteraction(InteractLockerEvent ev)
 		{
-			if (!ev.IsAllowed)
+			if (!ev.Allowed)
 			{
 				if (ev.Player.Team == Team.SCP) return;
 				var playerIntentory = ev.Player.Inventory.items;
@@ -65,7 +65,7 @@ namespace remote_keycard
 					{
 						if (itemPerm == "PEDESTAL_ACC")
 						{
-							ev.IsAllowed = true;
+							ev.Allowed = true;
 							continue;
 						}
 						if (itemPerm == "CHCKPOINT_ACC")
@@ -79,7 +79,7 @@ namespace remote_keycard
 					}
 					if (chcb && lvl2per)
 					{
-						ev.IsAllowed = true;
+						ev.Allowed = true;
 						continue;
 					}
 				}
@@ -100,7 +100,7 @@ namespace remote_keycard
 				{
 					if (itemPerm == "ARMORY_LVL_2")
 					{
-						ev.IsAllowed = true;
+						ev.Allowed = true;
 						continue;
 					}
 				}
