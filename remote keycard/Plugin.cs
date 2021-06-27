@@ -1,13 +1,12 @@
-﻿#pragma warning disable CS0618
-using Qurre.API.Events;
+﻿using Qurre.API.Events;
 using System.Linq;
 namespace remote_keycard
 {
 	public class Plugin : Qurre.Plugin
 	{
 		#region override
-		public override System.Version Version => new System.Version(1, 0, 4); 
-		public override System.Version NeededQurreVersion => new System.Version(1, 2, 0);
+		public override System.Version Version => new System.Version(1, 0, 5); 
+		public override System.Version NeededQurreVersion => new System.Version(1, 5, 0);
 		public override string Developer => "fydne";
 		public override string Name => "remote keycard";
 		public override void Enable() => RegisterEvents();
