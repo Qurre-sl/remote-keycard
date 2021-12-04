@@ -5,7 +5,7 @@ namespace remote_keycard
 	public class Plugin : Qurre.Plugin
 	{
 		#region override
-		public override System.Version Version => new System.Version(1, 0, 7);
+		public override System.Version Version => new System.Version(1, 0, 8);
 		public override System.Version NeededQurreVersion => new System.Version(1, 10, 0);
 		public override string Developer => "fydne";
 		public override string Name => "remote keycard";
@@ -84,7 +84,7 @@ namespace remote_keycard
 				{
 					InventorySystem.Items.Keycards.KeycardItem keycardItem;
 					if (ev.Player.Inventory.CurInstance != null && (keycardItem = item.Base as InventorySystem.Items.Keycards.KeycardItem) != null &&
-						keycardItem.Permissions.HasFlagFast(KeycardPermissions.ArmoryLevelOne))
+						keycardItem.Permissions.HasFlagFast(KeycardPermissions.ArmoryLevelTwo))
 						ev.Allowed = true;
 				}
 				catch { }
