@@ -38,6 +38,10 @@
     <Reference Include="Mirror_public">
       <HintPath>$(QURRE_DEPEDENCIES)\Mirror_public.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(QURRE_DEPEDENCIES)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Qurre">
       <HintPath>$(QURRE_DEPEDENCIES)\Qurre.dll</HintPath>
     </Reference>
@@ -57,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="EventsHandler.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
